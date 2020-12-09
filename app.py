@@ -1,13 +1,9 @@
 from flask import Flask
-import logging
+import logging as logging
 import config
 from api import api
 from models import db
 import os
-
-
-
-
 
 logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s]: {} %(levelname)s %(message)s'.format(os.getpid()), datefmt='%Y-%m-%d %H:%M:%S', handlers=[logging.StreamHandler()])
 
