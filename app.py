@@ -1,7 +1,7 @@
 from flask import Flask
 import logging
 import config
-import api
+from api import api
 from models import db
 import os
 
