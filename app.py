@@ -3,7 +3,7 @@ import os
 import config
 from api import api
 
-from flask import Flask, logging
+from flask import Flask
 
 from models import db
 
