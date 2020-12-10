@@ -1,11 +1,16 @@
-from flask import Flask
-import logging as logging
+import logging
+import os
 import config
 from api import api
-from models import db
-import os
 
-logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s]: {} %(levelname)s %(message)s'.format(os.getpid()), datefmt='%Y-%m-%d %H:%M:%S', handlers=[logging.StreamHandler()])
+from flask import Flask, logging
+
+from models import db
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='[%(asctime)s]: {} %(levelname)s %(message)s'.format(os.getpid()),
+                    datefmt='%Y-%m-%d %H:%M:%S',
+                    handlers=[logging.StreamHandler()])
 
 logger = logging.getLogger()
 
@@ -15,6 +20,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object('config')
     api.init_app(app)
+    
     # initialize SQLAlchemy
     db.init_app(app)
 
